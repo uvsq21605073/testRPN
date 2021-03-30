@@ -1,24 +1,55 @@
 package fr.uvsq.poo.pglp;
 import java.util.Stack;
-public class MoteurRPN extends Interpreteur {
 
+/**
+ * Classe implémentant les opérations de l'interpréteur.
+ */
+public class MoteurRPN extends Interpreteur {
+    /**
+     * Construire le moteur des opérations de calcul.
+     */
     public MoteurRPN() {
         super();
     }
-    public void register(double op1) {
-        super.pile.push(op1);
-    }
-    public void calculation(char operand) {
-            if (super.pile.size() >= 2) {
-                Operation O = new Operation();
-                if(operand == '-') super.pile.push(O.minus(super.pile.pop(),super.pile.pop()));
-                else if(operand == '+') super.pile.push(O.plus(super.pile.pop(),super.pile.pop()));
-                else if(operand == '*') super.pile.push(O.multiply(super.pile.pop(),super.pile.pop()));
-                else if(operand == '/') super.pile.push(O.divide(super.pile.pop(),super.pile.pop()));
-                else System.exit(0);
+
+    /**
+     * Enregistrer une opérande dans la pile.
+     * @param op1 une opérande.
+     */
+    public void register(final double op1) {
+        super.getPile().push(op1); }
+
+    /**
+     * Réaliser une opération en fonction de l'opérande.
+     * @param operand une opérande décrivant le type de calcul.
+     */
+    public void calculation(final char operand) {
+        if (super.getPile().size() >= 2) {
+            Operation operation = new Operation();
+            switch (operand) {
+                case '-':
+                    super.getPile().push(operation.minus(super.getPile().pop(), super.getPile().pop()));
+                    break;
+                case '+':
+                    super.getPile().push(operation.plus(super.getPile().pop(), super.getPile().pop()));
+                    break;
+                case '*':
+                    super.getPile().push(operation.multiply(super.getPile().pop(), super.getPile().pop()));
+                    break;
+                case '/':
+                    super.getPile().push(operation.divide(super.getPile().pop(), super.getPile().pop()));
+                    break;
+                default:
+                    System.exit(0);
+                }
             }
     }
+
+    /**
+     * Retourner la pile du calcul.
+     * @return la pile du calcul de type double.
+     */
     public Stack<Double> result() {
-        return super.pile;
+        return super.getPile();
     }
 }
