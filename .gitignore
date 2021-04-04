@@ -21,3 +21,4 @@ out/
 *.ipr
 *.iws
 maven-exemple.iml
+*.run
