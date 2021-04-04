@@ -47,9 +47,6 @@ public class Interpreteur {
      * Opération afin de défaire la dernière action réalisée.
      */
     public void undo() {
-//        this.pile.push(2.1);
-//        this.pile.push(2.2);
-//        System.out.println("stack: " + this.pile.toString());
         if (this.pile.size() >= 1) {
             this.pile.pop();
             System.out.println("stack: " + this.pile.toString());
