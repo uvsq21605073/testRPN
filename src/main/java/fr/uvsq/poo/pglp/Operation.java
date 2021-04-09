@@ -46,7 +46,12 @@ public class Operation {
      * @param number2 seconde opérande de division.
      * @return division of two double numbers
      */
-    public double divide(final double number1, final double number2) {
-        return number1 / number2;
+    public double divide(final double number1, final double number2) throws DivisionNullException{
+        if(number2 == 0){
+            throw new DivisionNullException();
+        }
+        else {
+            return number1 / number2;
+        }
     }
 }

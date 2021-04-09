@@ -12,6 +12,4 @@ public class CommandeUndo implements ICommande {
         this.I.undo();
     }
 
-    @Override
-    public void unapply() {}
 }

@@ -12,8 +12,4 @@ public class CommandeExit implements ICommande {
         this.I.exit();
     }
 
-    @Override
-    public void unapply() {
-
-    }
 }

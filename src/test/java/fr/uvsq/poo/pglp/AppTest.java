@@ -18,15 +18,15 @@ public class AppTest {
   }
 
   @Test
-  public void testPlus() {
+  public void testPlus() throws DivisionNullException {
     MoteurRPN M = new MoteurRPN();
     M.register(2);
     M.register(6);
-    M.calculation('+');
+      M.calculation('+');
     assertTrue(M.result().pop() == 8.0);
   }
   @Test
-  public void testMoins() {
+  public void testMoins() throws DivisionNullException {
     MoteurRPN M = new MoteurRPN();
     M.register(2);
     M.register(6);
@@ -35,7 +35,7 @@ public class AppTest {
   }
 
   @Test
-  public void testDivise() {
+  public void testDivise() throws DivisionNullException {
     MoteurRPN M = new MoteurRPN();
     M.register(2);
     M.register(6);
@@ -44,7 +44,7 @@ public class AppTest {
   }
 
   @Test
-  public void testFois() {
+  public void testFois() throws DivisionNullException {
     MoteurRPN M = new MoteurRPN();
     M.register(2);
     M.register(6);

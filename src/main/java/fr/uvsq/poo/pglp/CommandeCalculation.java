@@ -12,15 +12,21 @@ public class CommandeCalculation implements ICommande {
     @Override
     public void apply(){
         if (this.MRPN.getPile().size() >= 2) {
-            this.MRPN.calculation(operator);
+            try {
+                this.MRPN.register(this.MRPN.calculation(operator));
+            }
+            catch(DivisionNullException exception) {
+                exception.printStackTrace();
+            }
         }
         else {
             System.out.println("Pour effectuer l'opération il faut 2 opérandes, veuillez en rajouter");
         }
     }
 
-    @Override
-    public void unapply() {
 
+    public void setOperator(final char operator){
+        this.operator = operator;
     }
+
 }

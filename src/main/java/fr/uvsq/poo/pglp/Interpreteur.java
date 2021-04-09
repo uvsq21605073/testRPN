@@ -30,7 +30,7 @@ public class Interpreteur {
 
     /**
      * Accesseur pile opérandes.
-     * @return Pile de Double
+     * @return Pile de double
      */
     public Stack<Double> getPile() {
         return pile;

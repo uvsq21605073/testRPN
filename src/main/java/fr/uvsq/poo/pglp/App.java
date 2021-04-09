@@ -10,6 +10,13 @@ public class App {
      * @param args les arguments de la ligne de commande.
      */
     public static void main(final String[] args) {
+
         System.out.println("Hello World!");
+        MoteurRPN moteur = new MoteurRPN();
+        SaisieRPN saisie = new SaisieRPN(moteur);
+        while(true){
+            saisie.handleInput();
+            System.out.println(moteur.result());
+        }
     }
 }

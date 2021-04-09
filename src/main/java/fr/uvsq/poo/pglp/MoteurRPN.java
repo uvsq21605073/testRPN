@@ -22,27 +22,34 @@ public class MoteurRPN extends Interpreteur {
     /**
      * Réaliser une opération en fonction de l'opérande.
      * @param operand une opérande décrivant le type de calcul.
+     * @return
      */
-    public void calculation(final char operand) {
+    public double calculation(final char operand) throws DivisionNullException {
+        double result = 0.0;
         if (super.getPile().size() >= 2) {
             Operation operation = new Operation();
             switch (operand) {
                 case '-':
-                    super.getPile().push(operation.minus(super.getPile().pop(), super.getPile().pop()));
+                    result = operation.minus(super.getPile().pop(), super.getPile().pop());
+                    super.getPile().push(result);
                     break;
                 case '+':
-                    super.getPile().push(operation.plus(super.getPile().pop(), super.getPile().pop()));
+                    result = operation.plus(super.getPile().pop(), super.getPile().pop());
+                    super.getPile().push(result);
                     break;
                 case '*':
-                    super.getPile().push(operation.multiply(super.getPile().pop(), super.getPile().pop()));
+                    result = operation.multiply(super.getPile().pop(), super.getPile().pop());
+                    super.getPile().push(result);
                     break;
                 case '/':
-                    super.getPile().push(operation.divide(super.getPile().pop(), super.getPile().pop()));
-                    break;
+                    result = operation.divide(super.getPile().pop(), super.getPile().pop());
+                    super.getPile().push(result);
                 default:
                     System.exit(0);
+                    break;
                 }
             }
+        return result;
     }
 
     /**

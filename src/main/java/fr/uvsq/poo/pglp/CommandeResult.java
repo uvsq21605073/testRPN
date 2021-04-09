@@ -12,8 +12,4 @@ public class CommandeResult implements ICommande {
         this.MRPN.result();
     }
 
-    @Override
-    public void unapply() {
-
-    }
 }

@@ -2,20 +2,20 @@ package fr.uvsq.poo.pglp;
 
 public class CommandeRegister implements ICommande {
     private MoteurRPN MRPN;
-    private double Value;
+    private double value;
 
-    public CommandeRegister(MoteurRPN MRPN,double Value){
+    public CommandeRegister(MoteurRPN MRPN,double value){
         this.MRPN = MRPN;
-        this.Value = Value;
+        this.value = value;
     }
 
     @Override
     public void apply(){
-        this.MRPN.register(Value);
+        this.MRPN.register(value);
     }
 
-    @Override
-    public void unapply() {
 
+    public void setValue(double value){
+        this.value = value;
     }
 }

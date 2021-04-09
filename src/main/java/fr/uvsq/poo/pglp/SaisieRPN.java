@@ -25,9 +25,32 @@ public class SaisieRPN {
         do{
             System.out.print( "Veuillez saisir une operation RPN : " );
             inputString = scanner.nextLine();
-
+            double result = 0.0;
             System.out.println("Saisie:"+ inputString );
-            switch (inputString)
+            if(inputString.matches("[0-9]+")){
+                    result = Double.parseDouble(inputString);
+                    commandFactory.addValue(result);
+                    commandFactory.execute("register");
+            }
+            else if(inputString.equals("+")){
+                commandFactory.addOperation('+');
+                commandFactory.execute("calculation");
+            }
+            else if(inputString.equals("-")){
+                commandFactory.addOperation('-');
+                commandFactory.execute("calculation");
+            }
+            else if(inputString.equals("*")){
+                commandFactory.addOperation('*');
+                commandFactory.execute("calculation");
+            }
+            else if(inputString.equals("/")){
+                commandFactory.addOperation('/');
+                commandFactory.execute("calculation");
+            }
+            else{
+                commandFactory.execute(inputString);
+            }
         }while(number_input != 1);
 
     }
