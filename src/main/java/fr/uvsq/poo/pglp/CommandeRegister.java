@@ -1,6 +1,6 @@
 package fr.uvsq.poo.pglp;
 
-public class CommandeRegister implements Commande {
+public class CommandeRegister implements ICommande {
     private MoteurRPN MRPN;
     private double Value;
 
@@ -10,7 +10,12 @@ public class CommandeRegister implements Commande {
     }
 
     @Override
-    public void command(){
+    public void apply(){
         this.MRPN.register(Value);
+    }
+
+    @Override
+    public void unapply() {
+
     }
 }

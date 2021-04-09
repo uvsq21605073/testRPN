@@ -1,6 +1,6 @@
 package fr.uvsq.poo.pglp;
 
-public class CommandeExit implements Commande {
+public class CommandeExit implements ICommande {
     private Interpreteur I;
 
     public CommandeExit(Interpreteur I){
@@ -8,7 +8,12 @@ public class CommandeExit implements Commande {
     }
 
     @Override
-    public void command(){
+    public void apply(){
         this.I.exit();
+    }
+
+    @Override
+    public void unapply() {
+
     }
 }

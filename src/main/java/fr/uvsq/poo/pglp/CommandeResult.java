@@ -1,6 +1,6 @@
 package fr.uvsq.poo.pglp;
 
-public class CommandeResult implements Commande {
+public class CommandeResult implements ICommande {
     private MoteurRPN MRPN;
 
     public CommandeResult(MoteurRPN MRPN){
@@ -8,7 +8,12 @@ public class CommandeResult implements Commande {
     }
 
     @Override
-    public void command(){
+    public void apply(){
         this.MRPN.result();
+    }
+
+    @Override
+    public void unapply() {
+
     }
 }

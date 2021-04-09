@@ -1,6 +1,6 @@
 package fr.uvsq.poo.pglp;
 
-public class CommandeUndo implements Commande {
+public class CommandeUndo implements ICommande {
     private Interpreteur I;
 
     public CommandeUndo(Interpreteur I){
@@ -8,7 +8,10 @@ public class CommandeUndo implements Commande {
     }
 
     @Override
-    public void command(){
+    public void apply(){
         this.I.undo();
     }
+
+    @Override
+    public void unapply() {}
 }

@@ -1,6 +1,6 @@
 package fr.uvsq.poo.pglp;
 
-public class CommandeCalculation implements Commande{
+public class CommandeCalculation implements ICommande {
     private MoteurRPN MRPN;
     private char operator;
 
@@ -10,12 +10,17 @@ public class CommandeCalculation implements Commande{
     }
 
     @Override
-    public void command(){
+    public void apply(){
         if (this.MRPN.getPile().size() >= 2) {
             this.MRPN.calculation(operator);
         }
         else {
             System.out.println("Pour effectuer l'opération il faut 2 opérandes, veuillez en rajouter");
         }
+    }
+
+    @Override
+    public void unapply() {
+
     }
 }
