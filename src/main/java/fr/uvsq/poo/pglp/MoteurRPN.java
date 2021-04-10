@@ -17,7 +17,6 @@ public class MoteurRPN extends Interpreteur {
      * @param op1 une opérande.
      */
     public void register(final double op1) {
-        System.out.println("Ajouter à la pile: " + op1);
         pile.push(op1);
     }
 
@@ -40,6 +39,7 @@ public class MoteurRPN extends Interpreteur {
        }
        return result;
 }
+
 
 
 }

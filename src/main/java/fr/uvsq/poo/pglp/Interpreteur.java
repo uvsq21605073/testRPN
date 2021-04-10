@@ -20,6 +20,7 @@ public class Interpreteur {
      * Pile conservant les opérandes.
      */
     protected Stack<Double> pile;
+    protected Stack<Double> pileSave = new Stack<Double>();
     protected Operation operation;
     /**
      *  Créer la pile d'opérandes.
@@ -41,17 +42,13 @@ public class Interpreteur {
      * Opération afin de défaire la dernière action réalisée.
      */
     public void undo() {
-        if (this.pile.size() >= 1) {
-            this.pile.pop();
-            System.out.println("stack: " + this.pile.toString());
-        }
+        pile=pileSave;
     }
     public Stack<Double> result(){
         return this.pile;
     }
+    public void printStack() {
+        System.out.println(pile.toString().replaceAll("\\[", "|").replaceAll("]", "|<- head"));
 
-
-    public void printStack(){
-        System.out.println(this.pile.toString());
     }
 }

@@ -20,8 +20,8 @@ public class SaisieRPN {
 
     public void handleInput() {
        String inputString = new String();
-        System.out.print( "Veuillez saisir une operation RPN : " );
         int number_input = 0;
+        System.out.println( "Veuillez saisir une operation RPN (undo,exit, ou operandes)!");
         do{
 
             inputString = scanner.next();

@@ -14,9 +14,9 @@ public class App {
         System.out.println("Hello World!");
         MoteurRPN moteur = new MoteurRPN();
         SaisieRPN saisie = new SaisieRPN(moteur);
-        while(true){
+
+        while(true) {
             saisie.handleInput();
-            moteur.printStack();
         }
     }
 }

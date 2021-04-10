@@ -1,16 +1,17 @@
 package fr.uvsq.poo.pglp;
 
-import java.util.HashMap;
-import java.util.Map;
+
+import java.util.Hashtable;
+
 
 public class CommandeFactory {
     /**
      * Hashtable des commandes avec pour clé le nom de la commande
      */
-    private final Map<String,ICommande> commandTable;
+    private final Hashtable<String,ICommande> commandTable;
 
     public CommandeFactory(){
-        commandTable = new HashMap<>();
+        commandTable = new Hashtable<>();
     }
     public void addCommand(String commandName,ICommande command){
         commandTable.put(commandName,command);
@@ -45,6 +46,7 @@ public class CommandeFactory {
     public void execute(String commandName){
         if(commandTable.containsKey(commandName)){
             commandTable.get(commandName).apply();
+            commandTable.get("result").apply();
         }
     }
 
