@@ -20,32 +20,32 @@ public class SaisieRPN {
 
     public void handleInput() {
        String inputString = new String();
-
+        System.out.print( "Veuillez saisir une operation RPN : " );
         int number_input = 0;
         do{
-            System.out.print( "Veuillez saisir une operation RPN : " );
-            inputString = scanner.nextLine();
+
+            inputString = scanner.next();
             double result = 0.0;
-            System.out.println("Saisie:"+ inputString );
+            //System.out.println("Saisie:"+ inputString );
             if(inputString.matches("[0-9]+")){
                     result = Double.parseDouble(inputString);
-                    commandFactory.addValue(result);
+                    commandFactory.addValue(moteurRPN,result);
                     commandFactory.execute("register");
             }
             else if(inputString.equals("+")){
-                commandFactory.addOperation('+');
+                commandFactory.addOperation(moteurRPN,'+');
                 commandFactory.execute("calculation");
             }
             else if(inputString.equals("-")){
-                commandFactory.addOperation('-');
+                commandFactory.addOperation(moteurRPN,'-');
                 commandFactory.execute("calculation");
             }
             else if(inputString.equals("*")){
-                commandFactory.addOperation('*');
+                commandFactory.addOperation(moteurRPN,'*');
                 commandFactory.execute("calculation");
             }
             else if(inputString.equals("/")){
-                commandFactory.addOperation('/');
+                commandFactory.addOperation(moteurRPN,'/');
                 commandFactory.execute("calculation");
             }
             else{

@@ -16,7 +16,7 @@ public class App {
         SaisieRPN saisie = new SaisieRPN(moteur);
         while(true){
             saisie.handleInput();
-            System.out.println(moteur.result());
+            moteur.printStack();
         }
     }
 }

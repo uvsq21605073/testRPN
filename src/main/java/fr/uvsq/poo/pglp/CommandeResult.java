@@ -9,7 +9,7 @@ public class CommandeResult implements ICommande {
 
     @Override
     public void apply(){
-        this.MRPN.result();
+        //this.MRPN.result();
     }
 
 }

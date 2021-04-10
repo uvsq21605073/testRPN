@@ -11,17 +11,29 @@ public class CommandeCalculation implements ICommande {
 
     @Override
     public void apply(){
-        if (this.MRPN.getPile().size() >= 2) {
+        double resultat = 0.0;
+        double sommetPile = 0.0;
+        double secondPile = 0.0;
+        if (this.MRPN.pile.size() >= 2) {
             try {
-                this.MRPN.register(this.MRPN.calculation(operator));
-            }
-            catch(DivisionNullException exception) {
+                sommetPile = this.MRPN.pile.pop();
+                if (this.MRPN.pile.isEmpty()) {
+                    System.out.println("Not enough operand to calculate!");
+                    this.MRPN.pile.push(sommetPile);
+                    return;
+                } else {
+                    secondPile = this.MRPN.pile.pop();
+                    System.out.println(operator);
+                    resultat = this.MRPN.calculation(operator, sommetPile, secondPile);
+                    this.MRPN.register(resultat);
+                }
+            } catch (DivisionNullException exception) {
+                this.MRPN.pile.push(resultat);
+                this.MRPN.pile.push(sommetPile);
                 exception.printStackTrace();
             }
         }
-        else {
-            System.out.println("Pour effectuer l'opération il faut 2 opérandes, veuillez en rajouter");
-        }
+
     }
 
 

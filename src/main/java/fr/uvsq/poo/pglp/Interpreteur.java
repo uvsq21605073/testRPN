@@ -19,22 +19,16 @@ public class Interpreteur {
     /**
      * Pile conservant les opérandes.
      */
-    private Stack<Double> pile;
-
+    protected Stack<Double> pile;
+    protected Operation operation;
     /**
      *  Créer la pile d'opérandes.
      */
     public Interpreteur() {
         this.pile = new Stack<Double>();
+        this.operation = new Operation();
     }
 
-    /**
-     * Accesseur pile opérandes.
-     * @return Pile de double
-     */
-    public Stack<Double> getPile() {
-        return pile;
-    }
 
     /**
      *  Opération de sortie de la calculatrice.
@@ -51,5 +45,13 @@ public class Interpreteur {
             this.pile.pop();
             System.out.println("stack: " + this.pile.toString());
         }
+    }
+    public Stack<Double> result(){
+        return this.pile;
+    }
+
+
+    public void printStack(){
+        System.out.println(this.pile.toString());
     }
 }

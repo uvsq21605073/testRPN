@@ -17,46 +17,29 @@ public class MoteurRPN extends Interpreteur {
      * @param op1 une opérande.
      */
     public void register(final double op1) {
-        super.getPile().push(op1); }
+        System.out.println("Ajouter à la pile: " + op1);
+        pile.push(op1);
+    }
 
     /**
      * Réaliser une opération en fonction de l'opérande.
      * @param operand une opérande décrivant le type de calcul.
      * @return
      */
-    public double calculation(final char operand) throws DivisionNullException {
-        double result = 0.0;
-        if (super.getPile().size() >= 2) {
-            Operation operation = new Operation();
-            switch (operand) {
-                case '-':
-                    result = operation.minus(super.getPile().pop(), super.getPile().pop());
-                    super.getPile().push(result);
-                    break;
-                case '+':
-                    result = operation.plus(super.getPile().pop(), super.getPile().pop());
-                    super.getPile().push(result);
-                    break;
-                case '*':
-                    result = operation.multiply(super.getPile().pop(), super.getPile().pop());
-                    super.getPile().push(result);
-                    break;
-                case '/':
-                    result = operation.divide(super.getPile().pop(), super.getPile().pop());
-                    super.getPile().push(result);
-                default:
-                    System.exit(0);
-                    break;
-                }
-            }
-        return result;
-    }
+    public double calculation(final char operand,final double op1,final double op2) throws DivisionNullException {
+       double result = 0.0;
+       switch (operand) {
+                    case '-':
+                        return operation.minus(op1, op2);
+                    case '+':
+                        return operation.plus(op1, op2);
+                    case '*':
+                        return operation.multiply(op1,op2);
+                    case '/':
+                        return operation.divide(op1, op2);
+       }
+       return result;
+}
 
-    /**
-     * Retourner la pile du calcul.
-     * @return la pile du calcul de type double.
-     */
-    public Stack<Double> result() {
-        return super.getPile();
-    }
+
 }
