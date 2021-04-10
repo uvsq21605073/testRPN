@@ -20,7 +20,17 @@ public class Interpreteur {
      * Pile conservant les opérandes.
      */
     protected Stack<Double> pile;
+    /**
+     *  Flag afin de ne pas undo une division par zero.
+     */
+    boolean flagDivZero = false;
+    /**
+     * Pile de sauvegarde pour undo.
+     */
     protected Stack<Double> pileSave = new Stack<Double>();
+    /**
+     * Operation arithmétique.
+     */
     protected Operation operation;
     /**
      *  Créer la pile d'opérandes.
@@ -32,21 +42,51 @@ public class Interpreteur {
 
 
     /**
-     *  Opération de sortie de la calculatrice.
+     *  Sortie de la calculatrice.
      */
     public void exit() {
         System.exit(0);
     }
 
     /**
-     * Opération afin de défaire la dernière action réalisée.
+     * Défaire la dernière action réalisée.
      */
     public void undo() {
-        pile=pileSave;
+        pile = pileSave;
     }
-    public Stack<Double> result(){
+
+    /**
+     * Vider la pile d'opérandes.
+     */
+     public void empty() {
+         pile.clear();
+     }
+    /**
+     * Mutateur flag division par zero.
+     * @param bool false si exception division par zero, true sinon.
+     */
+    public void setFlagDivZero(final boolean bool) {
+       flagDivZero = bool;
+    }
+
+    /**
+     * Accesseur flag division par zero.
+     * @return booleen si division par zero effectuée.
+     */
+    public boolean getFlagDivZero() {
+      return flagDivZero;
+    }
+    /**
+     * Récupération de la pile principale.
+     * @return pile opérandes.
+     */
+    public Stack<Double> result() {
         return this.pile;
     }
+
+    /**
+     * Affichage de la pile principale.
+     */
     public void printStack() {
         System.out.println(pile.toString().replaceAll("\\[", "|").replaceAll("]", "|<- head"));
 

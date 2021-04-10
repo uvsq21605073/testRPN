@@ -1,5 +1,4 @@
 package fr.uvsq.poo.pglp;
-import java.util.Stack;
 
 /**
  * Classe implémentant les opérations de l'interpréteur.
@@ -20,12 +19,16 @@ public class MoteurRPN extends Interpreteur {
         pile.push(op1);
     }
 
+
     /**
-     * Réaliser une opération en fonction de l'opérande.
-     * @param operand une opérande décrivant le type de calcul.
-     * @return
+     *  Réaliser une opération en fonction de l'opérande.
+     * @param operand une opérande décrivant le type de calcul
+     * @param op1 première opérande.
+     * @param op2 seconde opérande.
+     * @return résultat de calcul arithmétique.
+     *
      */
-    public double calculation(final char operand,final double op1,final double op2) throws DivisionNullException {
+    public double calculation(final char operand, final double op1, final double op2)  {
        double result = 0.0;
        switch (operand) {
                     case '-':
@@ -33,9 +36,16 @@ public class MoteurRPN extends Interpreteur {
                     case '+':
                         return operation.plus(op1, op2);
                     case '*':
-                        return operation.multiply(op1,op2);
+                        return operation.multiply(op1, op2);
                     case '/':
-                        return operation.divide(op1, op2);
+                        try {
+                            return operation.divide(op1, op2);
+                        }  catch (DivisionNullException exception) {
+                            exception.printStackTrace();
+                        }
+                        break;
+                    default:
+                        break;
        }
        return result;
 }

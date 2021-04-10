@@ -1,15 +1,28 @@
 package fr.uvsq.poo.pglp;
 
+/**
+ * Action élémentaire d'annulation de la dernière saisie.
+ */
 public class CommandeUndo implements ICommande {
-    private Interpreteur I;
+    /**
+     *  Interpréteur générique.
+     */
+    private Interpreteur interpr;
 
-    public CommandeUndo(Interpreteur I){
-        this.I = I;
+    /**
+     * Constructeur de l'action Undo.
+     * @param intp interpréteur générique.
+     */
+    public CommandeUndo(final Interpreteur intp) {
+        this.interpr = intp;
     }
 
+    /**
+     * apply de l'undo respectant le pattern Command.
+     */
     @Override
-    public void apply(){
-        this.I.undo();
+    public void apply() {
+        this.interpr.undo();
     }
 
 }

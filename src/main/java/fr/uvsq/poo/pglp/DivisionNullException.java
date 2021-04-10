@@ -1,7 +1,13 @@
 package fr.uvsq.poo.pglp;
 
-public class DivisionNullException extends Exception{
-    public DivisionNullException(){
+/**
+ * Empêcher la division par zéro.
+ */
+public class DivisionNullException extends Exception {
+    /**
+     *  Exception de division par zéro.
+     */
+    public DivisionNullException() {
         super("Can't divide by zero!");
     }
 }

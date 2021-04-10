@@ -1,14 +1,14 @@
 package fr.uvsq.poo.pglp;
 
 /**
- * Classe décrivant le type d'opération de calcul.
+ * Classe décrivant le type d'opération de calcul arithmétique.
  */
 public class Operation {
     /**
      * Constructeur d'opération de calcul.
      */
     public Operation() {
-    }
+     }
 
     /**
      * Opération de soustraction de double.
@@ -45,12 +45,12 @@ public class Operation {
      * @param number1 première opérande de division.
      * @param number2 seconde opérande de division.
      * @return division of two double numbers
+     * @throws DivisionNullException division par zéro.
      */
-    public double divide(final double number1, final double number2) throws DivisionNullException{
-        if(number2 == 0){
+    public double divide(final double number1, final double number2) throws DivisionNullException {
+        if (number2 == 0) {
             throw new DivisionNullException();
-        }
-        else {
+        } else {
             return number1 / number2;
         }
     }
