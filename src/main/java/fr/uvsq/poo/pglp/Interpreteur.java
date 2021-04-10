@@ -76,13 +76,6 @@ public class Interpreteur {
     public boolean getFlagDivZero() {
       return flagDivZero;
     }
-    /**
-     * Récupération de la pile principale.
-     * @return pile opérandes.
-     */
-    public Stack<Double> result() {
-        return this.pile;
-    }
 
     /**
      * Affichage de la pile principale.

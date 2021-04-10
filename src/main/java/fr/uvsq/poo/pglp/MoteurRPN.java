@@ -1,5 +1,7 @@
 package fr.uvsq.poo.pglp;
 
+import java.util.Stack;
+
 /**
  * Classe implémentant les opérations de l'interpréteur.
  */
@@ -49,6 +51,15 @@ public class MoteurRPN extends Interpreteur {
        }
        return result;
 }
+
+    /**
+     * Récupération de la pile principale.
+     * @return pile opérandes.
+     */
+    public Stack<Double> result() {
+        return this.pile;
+    }
+
 
 
 
